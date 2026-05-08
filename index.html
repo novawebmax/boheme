@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOHÈME Beauty Salon | Peluquería y belleza en Alicante</title>
+  <meta name="description" content="BOHÈME Beauty Salon, salón de belleza y peluquería boutique en el centro de Alicante. Peluquería, manicura rusa, cejas, pestañas y tratamientos faciales." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbf7f1;
+      --bg-soft: #f4eadf;
+      --dark: #231b18;
+      --text: #4b403b;
+      --muted: #76685f;
+      --gold: #b8925b;
+      --gold-dark: #8c6734;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(35, 27, 24, 0.12);
+      --radius: 24px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--dark);
+      color: var(--white);
+      font-size: 0.85rem;
+      padding: 9px 0;
+    }
+
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 247, 241, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(184, 146, 91, 0.2);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      letter-spacing: 0.14em;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      color: var(--dark);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-size: 0.92rem;
+    }
+
+    .btn-primary {
+      background: var(--dark);
+      color: var(--white);
+      box-shadow: 0 12px 30px rgba(35, 27, 24, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border-color: rgba(35, 27, 24, 0.24);
+      color: var(--dark);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      align-items: center;
+      padding: 72px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(251, 247, 241, 0.95) 0%, rgba(251, 247, 241, 0.76) 48%, rgba(251, 247, 241, 0.2) 100%),
+        url("https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1600&q=80") center/cover;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(184, 146, 91, 0.18);
+      right: -120px;
+      bottom: -90px;
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 660px;
+    }
+
+    .eyebrow {
+      color: var(--gold-dark);
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--dark);
+      line-height: 1.05;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      letter-spacing: 0.08em;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      display: block;
+      font-size: clamp(1.5rem, 2.5vw, 2.4rem);
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+      color: var(--gold-dark);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 580px;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(184, 146, 91, 0.28);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 0.88rem;
+      color: var(--dark);
+    }
+
+    section {
+      padding: 86px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 28px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+    }
+
+    .section-heading p {
+      max-width: 520px;
+      color: var(--muted);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(184, 146, 91, 0.14);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--bg-soft);
+      color: var(--gold-dark);
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-size: 1.55rem;
+      margin-bottom: 10px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .about {
+      background: var(--bg-soft);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .about-image {
+      min-height: 520px;
+      border-radius: 34px;
+      background: url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80") center/cover;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image .floating {
+      position: absolute;
+      left: 26px;
+      bottom: 26px;
+      right: 26px;
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 22px;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .about-text h2 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.65);
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid rgba(184, 146, 91, 0.18);
+    }
+
+    .stat strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.2rem;
+      color: var(--dark);
+      line-height: 1;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      margin-top: 16px;
+      display: grid;
+      gap: 9px;
+    }
+
+    .service-card li::before {
+      content: "✦";
+      color: var(--gold-dark);
+      margin-right: 8px;
+    }
+
+    .booking {
+      background: var(--dark);
+      color: var(--white);
+      padding: 70px 0;
+    }
+
+    .booking-box {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .booking h2 {
+      color: var(--white);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      margin-bottom: 16px;
+    }
+
+    .booking p {
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 680px;
+    }
+
+    .booking-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .booking .btn-primary {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    .booking .btn-outline {
+      border-color: rgba(255, 255, 255, 0.28);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .reviews {
+      background: var(--bg-soft);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+
+    .stars {
+      color: var(--gold-dark);
+      letter-spacing: 2px;
+      white-space: nowrap;
+    }
+
+    .review-author {
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .schedule-contact {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .hours {
+      display: grid;
+      gap: 10px;
+    }
+
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(184, 146, 91, 0.2);
+      color: var(--muted);
+    }
+
+    .hour-row strong {
+      color: var(--dark);
+    }
+
+    .contact-card form {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(35, 27, 24, 0.15);
+      font-family: inherit;
+      background: #fffaf5;
+      color: var(--dark);
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 4px rgba(184, 146, 91, 0.12);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .map {
+      margin-top: 22px;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(184, 146, 91, 0.18);
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 330px;
+      border: 0;
+      display: block;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    details {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(184, 146, 91, 0.14);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    details p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.74);
+      padding: 42px 0;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 26px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    footer .logo {
+      color: var(--white);
+    }
+
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: #25d366;
+      color: white;
+      font-size: 1.55rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+      z-index: 25;
+    }
+
+    @media (max-width: 960px) {
+      .nav-links {
+        display: none;
+      }
+
+      .features,
+      .services-grid,
+      .reviews-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .booking-box,
+      .schedule-contact {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        min-height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar .container {
+        font-size: 0.78rem;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .features,
+      .services-grid,
+      .reviews-grid,
+      .faq-grid,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading p {
+        margin-top: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 0;
+      }
+
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>C. Susana Llaneras, 8, 03001 Alicante</span>
+      <span>Reserva tu cita: +34 657 40 25 83</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="logo">BOHÈME</a>
+        <div class="nav-links">
+          <a href="#salon">El salón</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#opiniones">Opiniones</a>
+          <a href="#contacto">Contacto</a>
+          <a class="btn btn-primary" href="https://app.alteg.io/book/723681/" target="_blank" rel="noopener">Reservar online</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Beauty salon en Alicante centro</div>
+          <h1>BOHÈME <span>Hair & Beauty Boutique</span></h1>
+          <p>Salón de belleza y peluquería boutique donde cada detalle importa: peluquería, manicura rusa, cejas, pestañas y tratamientos faciales en un ambiente elegante y acogedor.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://app.alteg.io/book/723681/" target="_blank" rel="noopener">Reservar cita</a>
+            <a class="btn btn-outline" href="#servicios">Ver servicios</a>
+          </div>
+          <div class="hero-badges">
+            <span class="badge">★ 4,9/5 en Google</span>
+            <span class="badge">296 reseñas</span>
+            <span class="badge">Abierto domingos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Por qué BOHÈME</div>
+            <h2>Belleza con calma, detalle y estilo.</h2>
+          </div>
+          <p>Un espacio pequeño, elegante y profesional en pleno centro de Alicante, diseñado para que cada visita sea una experiencia cuidada desde el primer momento.</p>
+        </div>
+
+        <div class="features">
+          <article class="card">
+            <div class="icon">✂</div>
+            <h3>Equipo experto</h3>
+            <p>Profesionales especializados en peluquería, uñas, cejas, pestañas y estética.</p>
+          </article>
+          <article class="card">
+            <div class="icon">☕</div>
+            <h3>Experiencia cuidada</h3>
+            <p>Ambiente relajante, trato cercano y detalles como café o té durante el servicio.</p>
+          </article>
+          <article class="card">
+            <div class="icon">✦</div>
+            <h3>Manicura rusa</h3>
+            <p>Uno de los servicios más destacados del salón, con acabado limpio, preciso y elegante.</p>
+          </article>
+          <article class="card">
+            <div class="icon">♡</div>
+            <h3>Salón inclusivo</h3>
+            <p>Un espacio acogedor, respetuoso y abierto para todo tipo de clientes.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="salon">
+      <div class="container about-grid">
+        <div class="about-image">
+          <div class="floating">
+            <strong>Centro de Alicante</strong>
+            <p>C. Susana Llaneras, 8 · 03001 Alicante</p>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="eyebrow">El salón</div>
+          <h2>Un salón boutique con mucha clase.</h2>
+          <p>BOHÈME es un salón de belleza y peluquería de alta gama en el centro de Alicante. Su propuesta combina profesionalidad, escucha activa y una atención muy personalizada.</p>
+          <p>El objetivo es que cada cliente salga con un resultado cuidado y una sensación de bienestar. Desde un cambio de look hasta una manicura rusa o un tratamiento facial, cada servicio se trabaja con precisión y cercanía.</p>
+          <div class="stats">
+            <div class="stat">
+              <strong>4,9</strong>
+              <span>Valoración media</span>
+            </div>
+            <div class="stat">
+              <strong>296</strong>
+              <span>Reseñas en Google</span>
+            </div>
+            <div class="stat">
+              <strong>Dom</strong>
+              <span>Abierto domingos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Servicios</div>
+            <h2>Hair, nails & beauty.</h2>
+          </div>
+          <p>Servicios integrales de belleza para cuidar el cabello, las manos, la mirada y la piel.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="card service-card">
+            <div class="icon">✂</div>
+            <h3>Peluquería</h3>
+            <p>Cortes, peinados y cambios de look adaptados a cada cliente.</p>
+            <ul>
+              <li>Corte de mujer</li>
+              <li>Lavado y peinado</li>
+              <li>Coloración y mechas</li>
+              <li>Peinados para eventos</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon">❋</div>
+            <h3>Uñas</h3>
+            <p>Manicuras precisas, elegantes y con acabados de alta calidad.</p>
+            <ul>
+              <li>Manicura rusa</li>
+              <li>Manicura híbrida</li>
+              <li>Nail art</li>
+              <li>Pedicura</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon">◉</div>
+            <h3>Cejas y pestañas</h3>
+            <p>Diseño de mirada para realzar la expresión natural del rostro.</p>
+            <ul>
+              <li>Diseño de cejas</li>
+              <li>Depilación de cejas</li>
+              <li>Brow lamination</li>
+              <li>Extensiones de pestañas</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon">✧</div>
+            <h3>Facial & corporal</h3>
+            <p>Tratamientos estéticos para piel, bienestar y cuidado personal.</p>
+            <ul>
+              <li>Tratamientos faciales</li>
+              <li>Masaje facial</li>
+              <li>Depilación con cera</li>
+              <li>Tratamientos corporales</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="booking" id="reservas">
+      <div class="container booking-box">
+        <div>
+          <div class="eyebrow">Reserva tu cita</div>
+          <h2>Tu momento BOHÈME empieza aquí.</h2>
+          <p>Recomendamos reservar con antelación, especialmente para manicura rusa, tratamientos de cejas y servicios de peluquería en fin de semana.</p>
+        </div>
+        <div class="booking-actions">
+          <a class="btn btn-primary" href="https://app.alteg.io/book/723681/" target="_blank" rel="noopener">Reservar online</a>
+          <a class="btn btn-outline" href="tel:+34657402583">Llamar al salón</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="opiniones">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Opiniones</div>
+            <h2>Lo que dicen de BOHÈME.</h2>
+          </div>
+          <p>El salón cuenta con una reputación muy alta y reseñas que destacan el trato, la manicura, el ambiente y la profesionalidad del equipo.</p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="card">
+            <div class="review-top">
+              <span class="review-author">Cliente local</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p>“Un lugar pequeño en el centro de Alicante, pero con mucha clase. Trato amable, profesional y resultado exactamente como lo pedí.”</p>
+          </article>
+          <article class="card">
+            <div class="review-top">
+              <span class="review-author">Manicura rusa</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p>“Servicio profesional, ambiente relajante y siempre con detalles como café o té durante la visita.”</p>
+          </article>
+          <article class="card">
+            <div class="review-top">
+              <span class="review-author">Beauty experience</span>
+              <span class="stars">★★★★★</span>
+            </div>
+            <p>“Equipo altamente profesional y especializado. Servicios de peluquería, manicura y tratamientos de primera calidad.”</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Contacto</div>
+            <h2>Estamos en el centro de Alicante.</h2>
+          </div>
+          <p>Pide tu cita online, por teléfono o visítanos en C. Susana Llaneras, 8.</p>
+        </div>
+
+        <div class="schedule-contact">
+          <article class="card">
+            <h3>Horario</h3>
+            <div class="hours" style="margin-top: 18px;">
+              <div class="hour-row"><strong>Lunes</strong><span>Cerrado</span></div>
+              <div class="hour-row"><strong>Martes</strong><span>10:00 – 20:00</span></div>
+              <div class="hour-row"><strong>Miércoles</strong><span>10:00 – 20:00</span></div>
+              <div class="hour-row"><strong>Jueves</strong><span>10:00 – 14:00</span></div>
+              <div class="hour-row"><strong>Viernes</strong><span>11:00 – 21:00</span></div>
+              <div class="hour-row"><strong>Sábado</strong><span>11:00 – 21:00</span></div>
+              <div class="hour-row"><strong>Domingo</strong><span>10:00 – 20:00</span></div>
+            </div>
+            <p style="margin-top: 16px; color: var(--muted);">Los horarios pueden variar en festivos. Se recomienda pedir cita previa.</p>
+          </article>
+
+          <article class="card contact-card">
+            <h3>Datos de contacto</h3>
+            <p style="margin-top: 12px;"><strong>Dirección:</strong> C. Susana Llaneras, 8, 03001 Alicante</p>
+            <p><strong>Teléfono:</strong> <a href="tel:+34657402583">+34 657 40 25 83</a></p>
+            <p><strong>Pago:</strong> efectivo y tarjeta</p>
+
+            <form onsubmit="sendMessage(event)">
+              <input type="text" id="name" placeholder="Tu nombre" required>
+              <input type="tel" id="phone" placeholder="Tu teléfono" required>
+              <textarea id="message" placeholder="¿Qué servicio te interesa?" required></textarea>
+              <button class="btn btn-primary" type="submit">Enviar por WhatsApp</button>
+            </form>
+          </article>
+        </div>
+
+        <div class="map">
+          <iframe
+            title="Mapa BOHÈME Beauty Salon Alicante"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=38.344516,-0.485973&z=17&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Preguntas frecuentes</div>
+            <h2>Antes de tu cita.</h2>
+          </div>
+        </div>
+        <div class="faq-grid">
+          <details>
+            <summary>¿Es necesario reservar?</summary>
+            <p>Se recomienda reservar con antelación para asegurar disponibilidad, sobre todo en fines de semana y domingos.</p>
+          </details>
+          <details>
+            <summary>¿Dónde está ubicado el salón?</summary>
+            <p>BOHÈME está en C. Susana Llaneras, 8, en pleno centro de Alicante.</p>
+          </details>
+          <details>
+            <summary>¿Qué servicios destacan más?</summary>
+            <p>Entre los servicios más mencionados están la manicura rusa, el cuidado de cejas, la peluquería y la experiencia del salón.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo">BOHÈME</div>
+        <p>Beauty salon · Alicante centro</p>
+      </div>
+      <div>
+        <p>C. Susana Llaneras, 8 · 03001 Alicante</p>
+        <p>+34 657 40 25 83</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/34657402583" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">☏</a>
+
+  <script>
+    function sendMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      const text = `Hola BOHÈME, soy ${name}. Mi teléfono es ${phone}. Me gustaría pedir información o cita para: ${message}`;
+      const url = `https://wa.me/34657402583?text=${encodeURIComponent(text)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
